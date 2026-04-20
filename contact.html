@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - دليل الفعاليات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand fw-bold" href="index.html">
+                        <i class="bi bi-calendar-event text-primary"></i> دليل الفعاليات
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                            <li class="nav-item"><a class="nav-link" href="events.html">جميع الفعاليات</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="contact.html">تواصل معنا</a></li>
+                            <!-- Dark Mode Toggle -->
+                            <li class="nav-item dark-mode-toggle">
+                                <label>
+                                    <i class="bi bi-moon"></i>
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span class="toggle-switch"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">تواصل معنا</h1>
+            <p class="lead">نسعد بمحادثتك واستقبال ملاحظاتك واقتراحاتك</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <!-- Contact Info -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body text-center">
+                            <i class="bi bi-telephone fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">الهاتف</h5>
+                            <a href="tel:+966501234567" class="text-decoration-none">+966 50 123 4567</a>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body text-center">
+                            <i class="bi bi-envelope fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">البريد الإلكتروني</h5>
+                            <a href="mailto:info@events.com" class="text-decoration-none">info@events.com</a>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-geo-alt fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">العنوان</h5>
+                            <p class="mb-0">شارع الفعاليات<br>المدينة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-md-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">أرسل لنا رسالتك</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">الاسم الكامل</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">البريد الإلكتروني</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">رقم الهاتف</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">الموضوع</label>
+                                    <select class="form-control" id="subject" name="subject" required>
+                                        <option value="">-- اختر موضوع --</option>
+                                        <option value="general">استفسار عام</option>
+                                        <option value="event">عن فعالية معينة</option>
+                                        <option value="suggestion">اقتراح أو ملاحظة</option>
+                                        <option value="partnership">شراكات</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">الرسالة</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100">إرسال الرسالة</button>
+                            </form>
+                            <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+                                شكراً لك! تم استقبال رسالتك بنجاح. سنرد عليك في أقرب وقت.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="row mt-5">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="bi bi-clock fa-3x text-primary mb-3"></i>
+                    <h5>ساعات العمل</h5>
+                    <p>الأحد - الخميس: 9 صباحاً - 6 مساءً<br>الجمعة: 12 ظهراً - 7 مساءً<br>السبت: مغلق</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="bi bi-chat fa-3x text-primary mb-3"></i>
+                    <h5>تابعنا على وسائل التواصل</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-primary me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-primary me-3 fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-primary me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-primary fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="bi bi-headphones fa-3x text-primary mb-3"></i>
+                    <h5>دعم العملاء</h5>
+                    <p>فريق الدعم متاح دائماً للإجابة على استفساراتك ومساعدتك في أي وقت</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Optional) -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">موقعنا على الخريطة</h2>
+            <div class="row">
+                <div class="col-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.5123456789012!2d46.21!3d24.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f123456789abc%3A0x123456789abcdef!2sRiyadh!5e0!3m2!1sen!2ssa!4v1234567890123" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <h5>عن دليل الفعاليات</h5>
+                    <p>منصة شاملة لاكتشاف أحدث الفعاليات الثقافية والرياضية والترفيهية في المدينة</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">جميع الفعاليات</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>معلومات التواصل</h5>
+                    <p><i class="bi bi-telephone"></i> الهاتف: +966 50 123 4567</p>
+                    <p><i class="bi bi-envelope"></i> البريد: info@events.com</p>
+                    <p><i class="bi bi-geo-alt"></i> العنوان: شارع الفعاليات، المدينة</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 دليل الفعاليات. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <!-- Bonus Features JS -->
+    <script src="bonus-features.js"></script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="العودة للأعلى">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Log (in real implementation, send to server)
+            console.log('Form submitted:', {name, email, subject, message});
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

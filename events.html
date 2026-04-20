@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جميع الفعاليات - دليل الفعاليات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand fw-bold" href="index.html">
+                        <i class="bi bi-calendar-event text-primary"></i> دليل الفعاليات
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="events.html">جميع الفعاليات</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
+                            <!-- Dark Mode Toggle -->
+                            <li class="nav-item dark-mode-toggle">
+                                <label>
+                                    <i class="bi bi-moon"></i>
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span class="toggle-switch"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">جميع الفعاليات</h1>
+            <p class="lead">استكشف جميع الفعاليات القادمة في المدينة</p>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="latest-events-section py-5">
+        <div class="container">
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=معرض+صور" alt="معرض صور">
+                        <span class="event-category">ثقافة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>معرض الصور الفوتوغرافية</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 28 أبريل 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> صالة العرض</p>
+                        <p class="event-description">معرض يعرض أفضل الصور الفوتوغرافية المحلية من فنانين مختلفين</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=بطولة+رياضية" alt="بطولة رياضية">
+                        <span class="event-category">رياضة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>بطولة الجري السنوية</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 29 أبريل 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> مسار المدينة</p>
+                        <p class="event-description">بطولة جري سنوية للهواة والمحترفين على مسافات مختلفة</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=حفل+موسيقي" alt="حفل موسيقي">
+                        <span class="event-category">موسيقى</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>أمسية موسيقى كلاسيكية</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 30 أبريل 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> قاعة الموسيقى</p>
+                        <p class="event-description">حفل موسيقي أنيق يقدمه فنانون محترفون من أوركسترا المدينة</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=عرض+عائلي" alt="عرض عائلي">
+                        <span class="event-category">عائلي</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>يوم الأسرة في المتنزه</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 1 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> متنزه المدينة</p>
+                        <p class="event-description">يوم ممتع للعائلات مع أنشطة متنوعة وألعاب للأطفال</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=احتفال+ثقافي" alt="احتفال ثقافي">
+                        <span class="event-category">ثقافة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>الاحتفال بالتراث المحلي</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 2 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> ساحة البلدة الرئيسية</p>
+                        <p class="event-description">احتفالية تحتفي بالتراث والثقافة والحرف المحلية التقليدية</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=مباراة+رياضية" alt="مباراة رياضية">
+                        <span class="event-category">رياضة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>دوري كرة الطائرة</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 3 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> الصالة الرياضية</p>
+                        <p class="event-description">بطولة كرة طائرة مثيرة بين الفرق المحلية المتميزة</p>
+                        <button type="button" class="btn btn-sm btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 7 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=ورشة+فنية" alt="ورشة فنية">
+                        <span class="event-category">ثقافة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>ورشة الفنون التشكيلية</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 4 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> المركز الفني</p>
+                        <p class="event-description">ورشة عملية لتعلم تقنيات الرسم والنحت من فنانين محترفين</p>
+                        <button class="btn btn-sm btn-outline-primary w-100">التفاصيل</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 8 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=حفل+موسيقي" alt="حفل موسيقي">
+                        <span class="event-category">موسيقى</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>فهرس الموسيقى الحديثة</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 5 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> قاعة الفنون</p>
+                        <p class="event-description">حفل عرض للموسيقى الحديثة والمعاصرة من الفنانين الشباب</p>
+                        <button class="btn btn-sm btn-outline-primary w-100">التفاصيل</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 9 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/300x200?text=سباق+دراجات" alt="سباق دراجات">
+                        <span class="event-category">رياضة</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>سباق الدراجات الجبلية</h4>
+                        <p class="event-date"><i class="bi bi-calendar"></i> 6 مايو 2026</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> الجبال المحيطة</p>
+                        <p class="event-description">سباق مثير للدراجات الجبلية على مسارات طبيعية وتحديات متنوعة</p>
+                        <button class="btn btn-sm btn-outline-primary w-100">التفاصيل</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <h5>عن دليل الفعاليات</h5>
+                    <p>منصة شاملة لاكتشاف أحدث الفعاليات الثقافية والرياضية والترفيهية في المدينة</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">جميع الفعاليات</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>معلومات التواصل</h5>
+                    <p><i class="bi bi-telephone"></i> الهاتف: +966 50 123 4567</p>
+                    <p><i class="bi bi-envelope"></i> البريد: info@events.com</p>
+                    <p><i class="bi bi-geo-alt"></i> العنوان: شارع الفعاليات، المدينة</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 دليل الفعاليات. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <!-- Bonus Features JS -->
+    <script src="bonus-features.js"></script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="العودة للأعلى">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">حجز مكان في الفعالية</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="bookingSuccess" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                        <i class="bi bi-check-circle"></i> تم حفظ الحجز بنجاح! شكراً لك على اختيارك.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <form id="bookingForm">
+                        <div class="mb-3">
+                            <label for="bookingName" class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-control" id="bookingName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingEmail" class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="bookingEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingTickets" class="form-label">عدد التذاكر</label>
+                            <input type="number" class="form-control" id="bookingTickets" min="1" max="10" value="1" required>
+                        </div>
+                        <input type="hidden" id="eventNameHidden" value="فعالية">
+                        <button type="submit" class="btn btn-primary w-100">تأكيد الحجز</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
