@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCategories();
     initializeEventCards();
     initializeNavigation();
+    initializeBonusFeatures();
 });
 
 // Initialize Carousel Functionality
@@ -210,3 +211,238 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+// ========================================
+// BONUS FEATURES - Merged Module
+// ========================================
+
+// Initialize Booking Modal
+function initializeBookingModal() {
+    const bookingForm = document.getElementById('bookingForm');
+    const successAlert = document.getElementById('bookingSuccess');
+    const modal = document.getElementById('bookingModal');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('bookingName').value;
+            const email = document.getElementById('bookingEmail').value;
+            const tickets = document.getElementById('bookingTickets').value;
+            const eventName = document.getElementById('eventNameHidden').value;
+
+            if (name && email && tickets) {
+                const booking = {
+                    name: name,
+                    email: email,
+                    tickets: tickets,
+                    event: eventName,
+                    date: new Date().toLocaleString('ar-SA')
+                };
+
+                let bookings = JSON.parse(localStorage.getItem('eventBookings')) || [];
+                bookings.push(booking);
+                localStorage.setItem('eventBookings', JSON.stringify(bookings));
+
+                successAlert.style.display = 'block';
+                this.reset();
+
+                setTimeout(() => {
+                    const bsModal = bootstrap.Modal.getInstance(modal);
+                    if (bsModal) bsModal.hide();
+                    successAlert.style.display = 'none';
+                }, 2000);
+
+                console.log('Booking saved:', booking);
+            }
+        });
+    }
+}
+
+// Initialize Scroll-to-Top Button
+function initializeScrollToTop() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Initialize Dark Mode Toggle
+function initializeDarkMode() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    if (darkModeToggle) {
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+        if (isDarkMode) {
+            enableDarkMode();
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                enableDarkMode();
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                disableDarkMode();
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    }
+
+    function enableDarkMode() {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.classList.add('dark-mode');
+    }
+
+    function disableDarkMode() {
+        document.documentElement.removeAttribute('data-theme');
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+// Initialize Category Preferences
+function initializeCategoryPreferences() {
+    const categoryBadges = document.querySelectorAll('.category-badge');
+    const savedCategories = JSON.parse(localStorage.getItem('favoriteCategories')) || [];
+
+    categoryBadges.forEach(badge => {
+        const category = badge.querySelector('span').textContent.trim();
+
+        if (savedCategories.includes(category)) {
+            badge.classList.add('favorite-category');
+        }
+
+        badge.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+            const categoryName = this.querySelector('span').textContent.trim();
+
+            if (this.classList.contains('favorite-category')) {
+                this.classList.remove('favorite-category');
+                const index = savedCategories.indexOf(categoryName);
+                if (index > -1) {
+                    savedCategories.splice(index, 1);
+                }
+            } else {
+                this.classList.add('favorite-category');
+                if (!savedCategories.includes(categoryName)) {
+                    savedCategories.push(categoryName);
+                }
+            }
+
+            localStorage.setItem('favoriteCategories', JSON.stringify(savedCategories));
+            console.log('Updated favorite categories:', savedCategories);
+        });
+    });
+}
+
+// Initialize Share Event Functionality
+function initializeShareEvent() {
+    const shareButtons = document.querySelectorAll('[data-share-event]');
+
+    shareButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const eventName = document.querySelector('h1')?.textContent || 'فعالية';
+            const eventUrl = window.location.href;
+            const shareText = `تحقق من هذه الفعالية: ${eventName}`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: eventName,
+                    text: shareText,
+                    url: eventUrl
+                }).then(() => {
+                    console.log('Event shared successfully');
+                }).catch(err => {
+                    console.log('Share cancelled or failed', err);
+                });
+            } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = eventUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                showNotification('تم نسخ رابط الفعالية!');
+            }
+        });
+    });
+}
+
+// Initialize Add to Calendar Functionality
+function initializeAddToCalendar() {
+    const addCalendarButtons = document.querySelectorAll('[data-add-calendar]');
+
+    addCalendarButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const eventName = document.querySelector('h1')?.textContent || 'فعالية';
+            const eventDate = document.querySelector('.event-date')?.textContent || '';
+            const eventLocation = document.querySelector('.event-location')?.textContent || '';
+
+            const calendarEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+            calendarEvents.push({
+                name: eventName,
+                date: eventDate,
+                location: eventLocation,
+                savedDate: new Date().toISOString()
+            });
+            localStorage.setItem('calendarEvents', JSON.stringify(calendarEvents));
+
+            showNotification('تم إضافة الفعالية إلى التقويم!');
+        });
+    });
+}
+
+// Show temporary notification
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification-alert';
+    notification.innerHTML = `
+        <i class="bi bi-check-circle"></i>
+        <span>${message}</span>
+    `;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 2500);
+}
+
+// Initialize all bonus features
+function initializeBonusFeatures() {
+    console.log('Initializing bonus features...');
+    initializeScrollToTop();
+    initializeDarkMode();
+    initializeBookingModal();
+    initializeCategoryPreferences();
+    initializeShareEvent();
+    initializeAddToCalendar();
+    console.log('Bonus features initialized successfully');
+}
