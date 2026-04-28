@@ -435,6 +435,82 @@ function showNotification(message) {
     }, 2500);
 }
 
+// Share Event Function
+function shareEvent() {
+    const eventTitle = document.querySelector('h1') ? document.querySelector('h1').textContent : 'الفعالية';
+    const eventUrl = window.location.href;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: 'دليل الفعاليات',
+            text: `تحقق من هذه الفعالية: ${eventTitle}`,
+            url: eventUrl
+        }).catch(err => console.log('Error sharing:', err));
+    } else {
+        // Fallback for browsers that don't support Web Share API
+        const shareText = `${eventTitle}\n${eventUrl}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareText).then(() => {
+                alert('تم نسخ رابط الفعالية إلى الحافظة!');
+            });
+        } else {
+            alert(`رابط الفعالية:\n${eventUrl}`);
+        }
+    }
+}
+
+// Add to Calendar Function
+function addToCalendar() {
+    const eventTitle = document.querySelector('h1') ? document.querySelector('h1').textContent : 'الفعالية';
+    const eventDate = document.querySelector('[data-event-date]') ? 
+                      document.querySelector('[data-event-date]').getAttribute('data-event-date') : 
+                      '28/04/2026';
+    const eventLocation = 'صالة العرض الفني، شارع الفنون';
+    
+    // Create .ics file content
+    const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//دليل الفعاليات//Events//AR
+BEGIN:VEVENT
+UID:event-${Date.now()}@eventguide.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, -5)}Z
+DTSTART:20260428T150000Z
+SUMMARY:${eventTitle}
+LOCATION:${eventLocation}
+DESCRIPTION:فعالية من دليل الفعاليات
+END:VEVENT
+END:VCALENDAR`;
+    
+    // Create blob and download
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${eventTitle}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+    
+    alert(`تم إضافة "${eventTitle}" إلى التقويم!`);
+}
+
+// Initialize Share Event
+function initializeShareEvent() {
+    const shareButtons = document.querySelectorAll('[onclick="shareEvent()"]');
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', shareEvent);
+    });
+}
+
+// Initialize Add to Calendar
+function initializeAddToCalendar() {
+    const calendarButtons = document.querySelectorAll('[onclick="addToCalendar()"]');
+    calendarButtons.forEach(btn => {
+        btn.addEventListener('click', addToCalendar);
+    });
+}
+
 // Initialize all bonus features
 function initializeBonusFeatures() {
     console.log('Initializing bonus features...');
@@ -444,5 +520,19 @@ function initializeBonusFeatures() {
     initializeCategoryPreferences();
     initializeShareEvent();
     initializeAddToCalendar();
+    
+    // Update total price when quantity changes
+    const quantityInput = document.getElementById('quantity');
+    if (quantityInput) {
+        quantityInput.addEventListener('change', function() {
+            const total = this.value * 50;
+            const totalPriceSpan = document.getElementById('totalPrice');
+            if (totalPriceSpan) {
+                totalPriceSpan.textContent = total;
+            }
+        });
+    }
+    
     console.log('Bonus features initialized successfully');
 }
+

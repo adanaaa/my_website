@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الفعالية - دليل الفعاليات</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <title data-i18n="title.event">تفاصيل الفعالية - دليل الفعاليات</title>
+    <link id="bootstrapCss" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,17 +15,17 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand fw-bold" href="index.html">
-                        <i class="bi bi-calendar-event text-primary"></i> دليل الفعاليات
+                        <i class="bi bi-calendar-event text-primary"></i> <span data-i18n="title.home">دليل الفعاليات</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="events.html">جميع الفعاليات</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">الرئيسية</a></li>
+                            <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">جميع الفعاليات</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">عن الدليل</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">تواصل معنا</a></li>
                             <!-- Dark Mode Toggle -->
                             <li class="nav-item dark-mode-toggle">
                                 <label>
@@ -41,88 +41,183 @@
         </div>
     </header>
 
+    <!-- Page Title -->
+    <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <h1 class="display-4 fw-bold" data-i18n="title.event">تفاصيل الفعالية</h1>
+            <p class="lead">استكشف جميع تفاصيل الفعالية</p>
+        </div>
+    </section>
+
     <!-- Event Details -->
     <section class="py-5">
         <div class="container">
             <div class="breadcrumb mb-4">
-                <a href="index.html" class="breadcrumb-item active text-decoration-none">الرئيسية</a>
+                <a href="index.html" class="breadcrumb-item active text-decoration-none" data-i18n="nav.home">الرئيسية</a>
                 <span class="breadcrumb-separator mx-2">/</span>
-                <a href="events.html" class="breadcrumb-item active text-decoration-none">جميع الفعاليات</a>
+                <a href="events.html" class="breadcrumb-item active text-decoration-none" data-i18n="nav.events">جميع الفعاليات</a>
                 <span class="breadcrumb-separator mx-2">/</span>
-                <span class="breadcrumb-item text-muted">تفاصيل الفعالية</span>
+                <span class="breadcrumb-item text-muted">معرض الصور الفوتوغرافية</span>
             </div>
 
             <div class="row">
                 <div class="col-md-8">
-                    <!-- Event Image -->
+                    <!-- Event Image Gallery -->
                     <div class="mb-4">
-                        <img src="https://via.placeholder.com/800x500?text=تفاصيل+الفعالية" alt="الفعالية" class="img-fluid rounded shadow">
+                        <div id="eventGallery" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="picture/Screenshot 2026-04-19 132513.gif" alt="الفعالية" class="d-block w-100" style="height: 500px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="picture/Screenshot 2026-04-19 132707.gif" alt="الفعالية" class="d-block w-100" style="height: 500px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="picture/Screenshot 2026-04-19 132814.gif" alt="الفعالية" class="d-block w-100" style="height: 500px; object-fit: cover;">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#eventGallery" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#eventGallery" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- Event Info -->
-                    <h1 class="mb-3">فعالية تفصيلية</h1>
-                    <span class="badge bg-primary mb-3">ثقافة</span>
-
+                    <!-- Event Header with Title, Date, Location -->
                     <div class="mb-4">
-                        <p class="text-muted fs-5">
-                            <i class="bi bi-calendar"></i> التاريخ: 28 أبريل 2026 | <i class="bi bi-clock"></i> الوقت: 3:00 مساءً
-                        </p>
-                        <p class="text-muted fs-5">
-                            <i class="bi bi-geo-alt"></i> الموقع: صالة العرض، شارع الفنون
-                        </p>
+                        <h2 class="display-6 mb-3">معرض الصور الفوتوغرافية</h2>
+                        <span class="badge bg-primary mb-3 me-2">ثقافة</span>
+                        <span class="badge bg-info mb-3">بارز</span>
                     </div>
 
+                    <!-- Event Meta Information -->
+                    <div class="card border-0 bg-light mb-4 p-4 rounded-3">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-calendar-event text-primary fs-5 me-3"></i>
+                                    <div>
+                                        <p class="text-muted small mb-1">تاريخ البداية</p>
+                                        <p class="fw-bold mb-0">28 أبريل 2026</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-clock text-primary fs-5 me-3"></i>
+                                    <div>
+                                        <p class="text-muted small mb-1">الوقت</p>
+                                        <p class="fw-bold mb-0">من 3:00 مساءً إلى 9:00 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-geo-alt text-primary fs-5 me-3 mt-1"></i>
+                                    <div>
+                                        <p class="text-muted small mb-1">الموقع</p>
+                                        <p class="fw-bold mb-0">صالة العرض الفني<br>شارع الفنون، الحي الثقافي</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Location Map -->
+                    <div class="mb-4">
+                        <h3 class="mb-3">موقع الفعالية</h3>
+                        <div class="rounded overflow-hidden shadow-sm" style="height: 300px;">
+                            <img src="picture/Screenshot 2026-04-20 141342.gif" alt="خريطة الموقع" class="w-100 h-100" style="object-fit: cover;">
+                        </div>
+                    </div>
+
+                    <!-- Event Description -->
                     <h3 class="mb-3">وصف الفعالية</h3>
-                    <p>هذه فعالية رائعة تجمع بين الفن والثقافة. تستضيف هذه الفعالية عدداً من الفنانين المحليين المشهورين الذين سيعرضون أعمالهم الفنية الاستثنائية.</p>
+                    <p class="lead text-muted mb-3">معرض استثنائي للصور الفوتوغرافية يجمع أفضل الأعمال الفنية من المصورين المحليين والإقليميين.</p>
+                    <p>هذه فعالية ثقافية رائعة تجمع بين الفن والتصوير الحديث. يستضيف المعرض عدداً من المصورين المشهورين الذين سيعرضون أعمالهم الفوتوغرافية الاستثنائية والحائزة على جوائز عالمية.</p>
                     <p>ستتمكن من:</p>
-                    <ul>
-                        <li>استكشاف الأعمال الفنية المتنوعة</li>
-                        <li>التفاعل المباشر مع الفنانين</li>
-                        <li>الحصول على معلومات عن الأعمال الفنية</li>
-                        <li>شراء الأعمال الفنية المفضلة لديك</li>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item border-0 ps-0"><i class="bi bi-check-circle text-success me-2"></i>استكشاف مئات الأعمال الفوتوغرافية المتنوعة</li>
+                        <li class="list-group-item border-0 ps-0"><i class="bi bi-check-circle text-success me-2"></i>التفاعل المباشر مع المصورين الفنانين</li>
+                        <li class="list-group-item border-0 ps-0"><i class="bi bi-check-circle text-success me-2"></i>الحصول على معلومات تفصيلية عن تقنيات التصوير</li>
+                        <li class="list-group-item border-0 ps-0"><i class="bi bi-check-circle text-success me-2"></i>فرصة شراء الصور الأصلية والمطبوعات الفنية</li>
+                        <li class="list-group-item border-0 ps-0"><i class="bi bi-check-circle text-success me-2"></i>حضور ورش عمل تعليمية مجانية</li>
                     </ul>
 
+                    <!-- Event Information Cards -->
                     <h3 class="mb-3 mt-4">معلومات مهمة</h3>
-                    <div class="card border-0 bg-light mb-3">
+                    <div class="card border-0 bg-light mb-4 rounded-3">
                         <div class="card-body">
-                            <p><strong>السعر:</strong> 50 ريال للفرد | 80 ريال للعائلة (عائلة من 4 أفراد)</p>
-                            <p><strong>الفئات العمرية المسموح بها:</strong> جميع الأعمار</p>
-                            <p><strong>المدة الزمنية:</strong> 3 ساعات تقريباً</p>
-                            <p><strong>السعة:</strong> 200 شخص</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <p><strong>السعر:</strong> 50 ريال للفرد | 80 ريال للعائلة</p>
+                                    <p><strong>الفئات العمرية:</strong> جميع الأعمار</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>المدة الزمنية:</strong> 6 ساعات</p>
+                                    <p><strong>السعة:</strong> 500 شخص</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Featured Activities -->
                     <h3 class="mb-3">الأنشطة المتضمنة</h3>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="card border-0 shadow-sm">
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100 rounded-3">
                                 <div class="card-body">
-                                    <h5 class="card-title"><i class="bi bi-palette text-primary"></i> عرض الأعمال الفنية</h5>
-                                    <p class="card-text">عرض مختار من أفضل الأعمال الفنية المحلية</p>
+                                    <h5 class="card-title"><i class="bi bi-image text-primary me-2"></i>عرض الصور الفوتوغرافية</h5>
+                                    <p class="card-text small">عرض مختار من أفضل الأعمال الفوتوغرافية المحلية والعالمية</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card border-0 shadow-sm">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100 rounded-3">
                                 <div class="card-body">
-                                    <h5 class="card-title"><i class="bi bi-people text-primary"></i> لقاء مباشر</h5>
-                                    <p class="card-text">لقاء مباشر مع الفنانين والتحدث معهم عن أعمالهم</p>
+                                    <h5 class="card-title"><i class="bi bi-people text-primary me-2"></i>لقاء مع المصورين</h5>
+                                    <p class="card-text small">لقاء مباشر مع المصورين الفنانين والحوار عن تجاربهم</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card border-0 shadow-sm">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100 rounded-3">
                                 <div class="card-body">
-                                    <h5 class="card-title"><i class="bi bi-mic text-primary"></i> محاضرات</h5>
-                                    <p class="card-text">محاضرات عن الفن والتقنيات الحديثة</p>
+                                    <h5 class="card-title"><i class="bi bi-book text-primary me-2"></i>ورش عمل تعليمية</h5>
+                                    <p class="card-text small">ورش عمل مجانية عن أساسيات التصوير والإضاءة</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card border-0 shadow-sm">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100 rounded-3">
                                 <div class="card-body">
-                                    <h5 class="card-title"><i class="bi bi-bag text-primary"></i> متجر فني</h5>
-                                    <p class="card-text">إمكانية شراء الأعمال الفنية المعروضة مباشرة</p>
+                                    <h5 class="card-title"><i class="bi bi-shop text-primary me-2"></i>متجر فني</h5>
+                                    <p class="card-text small">إمكانية شراء الصور الأصلية والمطبوعات الفنية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Events Section -->
+                    <h3 class="mb-4 mt-5">فعاليات ذات صلة</h3>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm overflow-hidden rounded-3 h-100">
+                                <img src="picture/Screenshot 2026-04-19 132707 - Copy.gif" alt="فعالية" class="card-img-top" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">ورشة الفنون التشكيلية</h5>
+                                    <p class="card-text small text-muted"><i class="bi bi-calendar"></i> 30 أبريل 2026</p>
+                                    <a href="event.html" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm overflow-hidden rounded-3 h-100">
+                                <img src="picture/Screenshot 2026-04-19 132814.gif" alt="فعالية" class="card-img-top" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">احتفال التراث المحلي</h5>
+                                    <p class="card-text small text-muted"><i class="bi bi-calendar"></i> 5 مايو 2026</p>
+                                    <a href="event.html" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
                                 </div>
                             </div>
                         </div>
@@ -132,46 +227,51 @@
                 <!-- Sidebar -->
                 <div class="col-md-4">
                     <!-- Booking Card -->
-                    <div class="card border-0 shadow-lg mb-4 sticky-top" style="top: 20px;">
+                    <div class="card border-0 shadow-lg mb-4 sticky-top rounded-3" style="top: 20px;">
                         <div class="card-body">
                             <h5 class="card-title mb-4">حجز التذاكر</h5>
                             <div class="mb-3">
-                                <label for="quantity" class="form-label">عدد التذاكر</label>
-                                <input type="number" class="form-control" id="quantity" value="1" min="1" max="10">
+                                <label for="quantity" class="form-label fw-bold">عدد التذاكر</label>
+                                <input type="number" class="form-control form-control-lg" id="quantity" value="1" min="1" max="10">
                             </div>
-                            <div class="mb-3">
-                                <p class="text-muted mb-2">السعر للتذكرة الواحدة: 50 ريال</p>
+                            <div class="mb-4">
+                                <p class="text-muted small mb-2">سعر التذكرة الواحدة: 50 ريال</p>
                                 <h4 class="text-primary">الإجمالي: <span id="totalPrice">50</span> ريال</h4>
                             </div>
                             <button type="button" class="btn btn-primary w-100 btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#bookingModal">حجز الآن</button>
-                            <button type="button" class="btn btn-outline-secondary w-100 mb-2" data-share-event>
-                                <i class="bi bi-share"></i> شارك
-                            </button>
-                            <button type="button" class="btn btn-outline-info w-100" data-add-calendar>
-                                <i class="bi bi-calendar-plus"></i> أضف للتقويم
-                            </button>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-outline-secondary" onclick="shareEvent()" title="شارك الفعالية">
+                                    <i class="bi bi-share"></i> شارك
+                                </button>
+                                <button type="button" class="btn btn-outline-info" onclick="addToCalendar()" title="أضف الفعالية للتقويم">
+                                    <i class="bi bi-calendar-plus"></i> أضف للتقويم
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Additional Info -->
-                    <div class="card border-0 shadow-sm mb-4">
+                    <div class="card border-0 shadow-sm mb-4 rounded-3">
                         <div class="card-body">
                             <h5 class="card-title mb-3">معلومات إضافية</h5>
-                            <p><strong>الجهة المنظمة:</strong> جمعية الفنانين المحليين</p>
+                            <p><strong>الجهة المنظمة:</strong> جمعية المصورين المحليين</p>
                             <p><strong>للاستفسارات:</strong><br>
                                 <i class="bi bi-telephone"></i> 050-123-4567<br>
-                                <i class="bi bi-envelope"></i> info@eventorganizer.com</p>
+                                <i class="bi bi-envelope"></i> info@photography.com</p>
+                            <p><strong>الموقع:</strong><br>
+                                <i class="bi bi-globe"></i> <a href="#" class="text-decoration-none">www.photography.com</a></p>
                         </div>
                     </div>
 
-                    <!-- Related Events -->
-                    <div class="card border-0 shadow-sm">
+                    <!-- Social Share -->
+                    <div class="card border-0 shadow-sm rounded-3">
                         <div class="card-body">
-                            <h5 class="card-title mb-3">فعاليات أخرى مشابهة</h5>
-                            <div class="small">
-                                <a href="#" class="d-block mb-2 text-decoration-none">معرض الصور الفوتوغرافية</a>
-                                <a href="#" class="d-block mb-2 text-decoration-none">ورشة الفنون التشكيلية</a>
-                                <a href="#" class="d-block text-decoration-none">الاحتفال بالتراث المحلي</a>
+                            <h5 class="card-title mb-3">شارك الفعالية</h5>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-outline-primary btn-sm" title="شارك على Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="btn btn-outline-info btn-sm" title="شارك على Twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="btn btn-outline-success btn-sm" title="شارك على WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                                <a href="#" class="btn btn-outline-danger btn-sm" title="شارك بالبريد"><i class="bi bi-envelope"></i></a>
                             </div>
                         </div>
                     </div>
@@ -186,7 +286,11 @@
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
                     <h5>عن دليل الفعاليات</h5>
-                    <p>منصة شاملة لاكتشاف أحدث الفعاليات الثقافية والرياضية والترفيهية في المدينة</p>
+                    <p>adam_291301  آدم قصي اسماعيل<br>
+                    abeer_308110  عبير محمد عارفي<br>
+                    sedra_300210  سدرة الخطيب<br>
+                    leen_299852 لين علي خرفان<br>
+                    mjd_285967 مجد القضماني</p>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>روابط سريعة</h5>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معنا - دليل الفعاليات</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <title data-i18n="title.contact">تواصل معنا - دليل الفعاليات</title>
+    <link id="bootstrapCss" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,17 +15,17 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand fw-bold" href="index.html">
-                        <i class="bi bi-calendar-event text-primary"></i> دليل الفعاليات
+                        <i class="bi bi-calendar-event text-primary"></i> <span data-i18n="title.home">دليل الفعاليات</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-                            <li class="nav-item"><a class="nav-link" href="events.html">جميع الفعاليات</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="contact.html">تواصل معنا</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">الرئيسية</a></li>
+                            <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">جميع الفعاليات</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">عن الدليل</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="contact.html" data-i18n="nav.contact">تواصل معنا</a></li>
                             <!-- Dark Mode Toggle -->
                             <li class="nav-item dark-mode-toggle">
                                 <label>
@@ -44,8 +44,8 @@
     <!-- Page Title -->
     <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
         <div class="container">
-            <h1 class="display-4 fw-bold">تواصل معنا</h1>
-            <p class="lead">نسعد بمحادثتك واستقبال ملاحظاتك واقتراحاتك</p>
+            <h1 class="display-4 fw-bold" data-i18n="contact.title">تواصل معنا</h1>
+            <p class="lead" data-i18n="contact.send">نسعد بمحادثتك واستقبال ملاحظاتك واقتراحاتك</p>
         </div>
     </section>
 
@@ -84,19 +84,24 @@
                 <div class="col-md-8">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-5">
-                            <h3 class="mb-4">أرسل لنا رسالتك</h3>
+                            <h3 class="mb-4" data-i18n="contact.send">أرسل لنا رسالتك</h3>
                             <form id="contactForm">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">الاسم الكامل</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <label for="name" class="form-label" data-i18n="contact.name">الاسم الكامل</label>
+                                    <input type="text" class="form-control" id="name" name="name" required data-i18n-placeholder="contact.name">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">البريد الإلكتروني</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <label for="email" class="form-label" data-i18n="contact.email">البريد الإلكتروني</label>
+                                    <input type="email" class="form-control" id="email" name="email" required data-i18n-placeholder="contact.email">
                                 </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg w-100">إرسال الرسالة</button>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label" data-i18n="contact.message">الرسالة</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" required data-i18n-placeholder="contact.message"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100" data-i18n="contact.submit">إرسال الرسالة</button>
                             </form>
                             <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
                                 شكراً لك! تم استقبال رسالتك بنجاح. سنرد عليك في أقرب وقت.
@@ -132,17 +137,7 @@
         </div>
     </section>
 
-    <!-- Map Section (Optional) -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="mb-4">موقعنا على الخريطة</h2>
-            <div class="row">
-                <div class="col-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.5123456789012!2d46.21!3d24.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f123456789abc%3A0x123456789abcdef!2sRiyadh!5e0!3m2!1sen!2ssa!4v1234567890123" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer bg-dark text-white py-5">
@@ -150,7 +145,11 @@
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
                     <h5>عن دليل الفعاليات</h5>
-                    <p>منصة شاملة لاكتشاف أحدث الفعاليات الثقافية والرياضية والترفيهية في المدينة</p>
+                    <p>adam_291301  آدم قصي اسماعيل<br>
+                    abeer_308110  عبير محمد عارفي<br>
+                    sedra_300210  سدرة الخطيب<br>
+                    leen_299852 لين علي خرفان<br>
+                    mjd_285967 مجد القضماني</p>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>روابط سريعة</h5>
